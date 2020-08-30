@@ -1,0 +1,39 @@
+# For more information, please refer to https://aka.ms/vscode-docker-python
+FROM python:3.8-slim-buster
+
+# RUN apt-get update && \
+#     apt-get -y install python3-pandas
+
+
+# Keeps Python from generating .pyc files in the container
+ENV PYTHONDONTWRITEBYTECODE 1
+
+# Turns off buffering for easier container logging
+ENV PYTHONUNBUFFERED 1
+
+# copy over our requirements.txt file
+COPY requirements.txt /tmp/
+
+# WORKDIR /project
+# ADD . /project
+
+# upgrade pip and install required python packages
+RUN pip install -U pip
+RUN pip install -r /tmp/requirements.txt
+
+# ENV PYTHONPATH="$PYTHONPATH:/opt/src/"
+# ENV APP_ENVIRON=${APP_ENVIRON}
+RUN echo 'test'
+# RUN echo PYTHONPATH
+# Copy application SRC and Binaries
+COPY ./src /opt/src
+# COPY bin/ bin
+COPY ./src/ app 
+WORKDIR /app
+
+EXPOSE 5001
+
+# run mainline
+# ENTRYPOINT ["sh", "-c", "python -m Dockerfile"]
+
+CMD [ "python", "stringdetector/apps/detector_module/app.py", "--host", "0.0.0.0"]

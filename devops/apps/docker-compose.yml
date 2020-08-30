@@ -1,0 +1,10 @@
+version: '3.6'
+
+services:
+  string_detector:
+    image: stringdetectorml
+    build:
+      context: ../..
+      dockerfile: ./devops/apps/dockerfiles/Dockerfile.string_detector
+    ports:
+      - "5001:5001"
