@@ -8,6 +8,7 @@ main_app = StringDetector()
 
 @app.route('/')
 def main():
+    print("main file")
     return main_app.run()
 
 if __name__=="__main__":
