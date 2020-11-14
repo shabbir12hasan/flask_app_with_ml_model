@@ -10,7 +10,7 @@
 
 
 ## Publishing Flask app via docker
-### Docker commnad tips
+### Docker commnad
 - Naviagete to apps folder inside devops to run docker commands
 
 1. Remove already existing docker image (if any)
