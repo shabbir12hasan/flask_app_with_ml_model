@@ -4,16 +4,17 @@
 3. Then execute flask: flask run
 
 
-# naviagete to apps folder inside devops
+### Docker tips:
+### Naviagete to apps folder inside devops to run docker commands
 
-## remove already existing image
+### Remove already existing docker image
 docker image rm --force stringdetectorml
 
-## build a new image
+### Build a new docker image
 make build-string-detector
 
-## run image
+### Run docker image
 docker run -p 5001:5001 stringdetectorml
 
-## investigate the image
+### Investigate the image
 docker run -it stringdetectorml sh
