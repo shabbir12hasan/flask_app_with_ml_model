@@ -5,7 +5,7 @@
 
 
 ### Docker tips:
-### Naviagete to apps folder inside devops to run docker commands
+Naviagete to apps folder inside devops to run docker commands
 
 ### Remove already existing docker image
 docker image rm --force stringdetectorml
