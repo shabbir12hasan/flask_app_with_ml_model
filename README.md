@@ -1,21 +1,28 @@
-Introduction:
-This project is using a dummy Machine Learning(ML) model and integrating it on top of a Python Flask application.
-Also, then dockerizing the Flask application.
+### Introduction:
+This project is demonstrating how we can integrate a Machine Learning(ML) model with a Python Flask application and then deploy the whole application using dockers.
 
-## Procedure to run this app locally:
+
+### Requirements:
+- Python 3.7
+- Docker installed and set up (Docker has a very detailed documentation, https://docs.docker.com/engine/install/ubuntu/)
+- Virtual env with all project libraries installed
+
+### Setup:
 1. Create a virtual env
 - python -m venv venv
 2. Activate the virutal env
 - source venv/bin/activate
-3. set flask app with the command
+3. Install project libraries
+- pip install -r requirements.txt
+4. set flask app with the command
 - SET FLASK_APP=test_2.py
-4. Then execute flask
+5. Then execute flask
 - flask run
 
 
-## Publishing Flask app via docker
-### Docker commnads
-- Navigate to apps folder inside devops to run docker commands
+### Dockerizing Flask app:
+#### Docker commands
+- Navigate to apps folder inside DevOps to run docker commands
 
 1. Remove already existing docker image (if any)
 - docker image rm --force stringdetectorml
