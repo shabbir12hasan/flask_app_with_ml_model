@@ -1,3 +1,7 @@
+Introduction:
+This project is using a dummy Machine Learning(ML) model and integrating it on top of a Python Flask application.
+Also, then dockerizing the Flask application.
+
 ## Procedure to run this app locally:
 1. Create a virtual env
 - python -m venv venv
@@ -10,8 +14,8 @@
 
 
 ## Publishing Flask app via docker
-### Docker commnad
-- Naviagete to apps folder inside devops to run docker commands
+### Docker commnads
+- Navigate to apps folder inside devops to run docker commands
 
 1. Remove already existing docker image (if any)
 - docker image rm --force stringdetectorml
