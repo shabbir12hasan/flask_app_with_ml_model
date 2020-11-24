@@ -10,7 +10,7 @@ main_app = StringDetector()
 from io import BytesIO
 import dill as pickle
 model_path = 'stringdetector/apps/bin/logreg_model.pkl' # for running in docker
-# model_pathcd  = '../bin/logreg_model.pkl' # for running locally
+# model_path  = '../bin/logreg_model.pkl' # for running locally
 log_reg = open(model_path ,'rb')
 model = pickle.load(log_reg)
 # model.predict([[3,4]])
