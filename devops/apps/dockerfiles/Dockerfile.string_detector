@@ -19,13 +19,14 @@ COPY requirements.txt /tmp/
 
 # upgrade pip and install required python packages
 RUN pip install -U pip
-RUN pip install -r /tmp/requirements.txt
+RUN pip3 install -r /tmp/requirements.txt
 
 # ENV PYTHONPATH="$PYTHONPATH:/opt/src/"
 # ENV APP_ENVIRON=${APP_ENVIRON}
 RUN echo 'test'
 # RUN echo PYTHONPATH
 # Copy application SRC and Binaries
+
 COPY ./src /opt/src
 # COPY bin/ bin
 COPY ./src/ app 

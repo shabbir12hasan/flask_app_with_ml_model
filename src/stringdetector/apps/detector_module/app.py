@@ -9,7 +9,8 @@ main_app = StringDetector()
 # load the pipeline object
 from io import BytesIO
 import dill as pickle
-model_path = 'stringdetector/libs/ml_models/model_pkl/logreg_model.pkl'
+model_path = 'stringdetector/apps/bin/logreg_model.pkl' # for running in docker
+# model_pathcd  = '../bin/logreg_model.pkl' # for running locally
 log_reg = open(model_path ,'rb')
 model = pickle.load(log_reg)
 # model.predict([[3,4]])
@@ -49,6 +50,3 @@ def create_task():
 
 if __name__=="__main__":
     app.run(host ='0.0.0.0', port = 5001)
-
-
-# set pythonpath="C:\Users\Hasan\Documents\Personal_Git\Flask API\StringDetector\src"

@@ -1,0 +1,10 @@
+# virtual env
+venv_flask_api/
+
+# vs code file
+launch.json
+settings.json
+.env
+
+# python cache files
+__pycache__
