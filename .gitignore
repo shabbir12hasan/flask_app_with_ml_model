@@ -8,3 +8,6 @@ settings.json
 
 # python cache files
 __pycache__
+
+# creds file
+credentials.json
