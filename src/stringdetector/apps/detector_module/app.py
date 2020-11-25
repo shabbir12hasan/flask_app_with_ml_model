@@ -1,19 +1,35 @@
-from detector_app import StringDetector
 from flask import Flask, render_template
 from flask import request
 
+# path fix, add to pythonpath or apped the src path here
+import sys
+# print(sys.path)
+sys.path.append("/home/shabbir/Documents/Repo/flask_app_with_ml_model/src/")
 
+from stringdetector.libs.ml_models.ai_object import ModelDataObject
+from stringdetector.apps.detector_module.detector_app import StringDetector
+
+
+################ loading model from s3 ###############
+model_object = ModelDataObject()
+model = model_object.load_model_object(name="logreg_model.pkl")
+#######################################################
+
+# Initiating the flask app
 app = Flask(__name__)
 main_app = StringDetector()
 
+
+################## loading model from the bin file ###############
 # load the pipeline object
-from io import BytesIO
-import dill as pickle
-model_path = 'stringdetector/apps/bin/logreg_model.pkl' # for running in docker
-# model_path  = '../bin/logreg_model.pkl' # for running locally
-log_reg = open(model_path ,'rb')
-model = pickle.load(log_reg)
+# from io import BytesIO
+# import dill as pickle
+# model_path = 'stringdetector/apps/bin/logreg_model.pkl' # for running in docker
+# # model_path  = '../bin/logreg_model.pkl' # for running locally
+# log_reg = open(model_path ,'rb')
+# model = pickle.load(log_reg)
 # model.predict([[3,4]])
+###################################################################
 
 
 @app.route('/')
@@ -25,7 +41,6 @@ def main():
 def create_task():
     req_data = request.get_json()
     
-
     if req_data is None:
         # req_data = request.form
         inp_length = int(request.form['length'])
@@ -34,10 +49,6 @@ def create_task():
         inp_length = req_data['length']
         inp_height = req_data['height']
 
-
-    # print("*****", req_data['id'])
-    # print("*****", req_data['input_message'])
-    
     output = model.predict([[inp_length, inp_height]])
     ret_message = 'Mesage ID:{id} \n Length:{inp_length} \n Height:{inp_height} \n Model output widht:{output}'.format(
         id='Test'
