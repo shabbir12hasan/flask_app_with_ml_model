@@ -39,6 +39,7 @@ class ModelDataObject(AIObject):
     # Extracting the s3 object, unpickling it and returning the model
     def load_model_object(self, name):
         # name = 'logreg_model.pkl'
+        print("Loading {name} from s3".format(name=name))
         body = self._load_from_s3(name)
         bytes = BytesIO(body.read())
         bytes.seek(0)
