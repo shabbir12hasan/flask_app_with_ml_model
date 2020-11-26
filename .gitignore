@@ -11,3 +11,6 @@ __pycache__
 
 # creds file
 credentials.json
+
+# model
+*.pkl
