@@ -1,11 +1,13 @@
 from flask import Flask, render_template
 from flask import request
 
+## running locally
 # path fix, add to pythonpath or apped the src path here
 import sys
 # print(sys.path)
 sys.path.append("/home/shabbir/Documents/Repo/flask_app_with_ml_model/src/")
 
+from stringdetector.libs.physical_data_model.data_inserts import DataInsert
 from stringdetector.libs.ml_models.ai_object import ModelDataObject
 from stringdetector.apps.detector_module.detector_app import StringDetector
 
@@ -24,7 +26,7 @@ main_app = StringDetector()
 # load the pipeline object
 # from io import BytesIO
 # import dill as pickle
-# model_path = 'stringdetector/apps/bin/logreg_model.pkl' # for running in docker
+# model_path = 'stringdetector/apps/bin/test_logreg_model.pkl' # for running in docker
 # # model_path  = '../bin/logreg_model.pkl' # for running locally
 # log_reg = open(model_path ,'rb')
 # model = pickle.load(log_reg)
@@ -50,6 +52,11 @@ def create_task():
         inp_height = req_data['height']
 
     output = model.predict([[inp_length, inp_height]])
+    
+    # Inserting data in the DB
+    data_insert = DataInsert()
+    data_insert.insert_record_in_mongo({'height':inp_height, 'length':inp_length, 'result':output[0]})
+
     ret_message = 'Mesage ID:{id} \n Length:{inp_length} \n Height:{inp_height} \n Model output widht:{output}'.format(
         id='Test'
         ,inp_length=inp_length
