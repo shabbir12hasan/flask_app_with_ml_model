@@ -1,11 +1,18 @@
+### Update 1.0.0
+- Taking the ML model from AWS s3 bucket
+- Storing the processed data and results on MongoDB hosted on AWS EC2
+
 ### Introduction:
-This project is demonstrating how we can integrate a Machine Learning(ML) model with a Python Flask application and then deploy the whole application using dockers.
+This project is demonstrating how we can integrate a Machine Learning(ML) model with a Python Flask application and generate an API. This code extract the model from AWS S3 and store the model outputs in MongoDB living on AWS EC2.
 
 
 ### Requirements:
 - Python 3.7
 - Docker installed and set up (Docker has a very detailed documentation, https://docs.docker.com/engine/install/ubuntu/)
 - Virtual env with all project libraries installed
+- AWS account with S3 and MongoDB
+- Credential file with AWS creds
+- Model stored in s3
 
 ### Setup:
 1. Create a virtual env
