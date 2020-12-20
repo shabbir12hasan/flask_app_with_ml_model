@@ -5,6 +5,14 @@
 ### Introduction:
 This project is demonstrating how we can integrate a Machine Learning(ML) model with a Python Flask application and generate an API. This code extract the model from AWS S3 and store the model outputs in MongoDB living on AWS EC2.
 
+#### Situation
+Incoming users on the website needs to see the search results of the ML model on the live site. 
+<p align="center"><img src="https://github.com/shabbir12hasan/flask_app_with_ml_model/blob/master/app_architecture/user_website_interactin.png" width="850"/></p>
+
+#### Solution
+Building a Flask API which will allow user to insert the data and see the results from ML model.
+<p align="center"><img src="https://github.com/shabbir12hasan/flask_app_with_ml_model/blob/master/app_architecture/Flask_app.png" width="850"/></p>
+
 
 ### Requirements:
 - Python 3.7
